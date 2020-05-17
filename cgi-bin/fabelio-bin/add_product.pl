@@ -19,7 +19,6 @@ my $url = $formdata{'producturl'};
 
 addtoDB();
 
-
 sub readConfig {
     my %dbConfig;
     my $configPath = "./config/db.conf";
@@ -114,15 +113,15 @@ sub addtoDB  {
     print "<tr><td><img src=$image></td></tr>";
     print "</table>";
     print "<p><a href=http://localhost/fabelio-test/add.html>Add more product</a></p>";
-    print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_product>Product list</a></p>";
+    print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_product.pl>Product list</a></p>";
     print "\n</BODY></HTML>";
 
     $name = '"' . $name . '"';
  
-    my $sql_insert = "insert into products (name, price, `desc`, image) values (?,?,?,?);";
+    my $sql_insert = "insert into products (name, price, `desc`, image, url) values (?,?,?,?,?);";
 
     my $stmt = $myConnection->prepare($sql_insert);
-    $stmt->execute($name, $price, $desc, $image) || die ("Error insert to database");
+    $stmt->execute($name, $price, $desc, $image, $url) || die ("Error insert to database");
     $stmt->finish();
     $myConnection->disconnect();
 }

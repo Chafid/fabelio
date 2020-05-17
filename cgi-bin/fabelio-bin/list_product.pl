@@ -34,7 +34,7 @@ $stmt->execute() || die ("Error query to database");
 while(my @row = $stmt->fetchrow_array()){
     my $productName = substr($row[0], 1);
     chop($productName);
-    my $url = "http://localhost/cgi-bin/fabelio-bin/get_details?productid=" . $row[1];
+    my $url = "http://localhost/cgi-bin/fabelio-bin/get_details.pl?productid=" . $row[1];
     print "<a href=$url>$productName</a><br><br>";
 }  
 $stmt->finish();

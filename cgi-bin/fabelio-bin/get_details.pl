@@ -42,7 +42,7 @@ print "<tr><td><p>Price:<br>Rp $price</td></p></tr>";
 print "<tr><td><img src=$image></td></tr>";
 print "</table>";
 print "<p><a href=http://localhost/fabelio-test/add.html>Add more product</a></p>";
-print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_product>Product list</a></p>";
+print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_produc.plt>Product list</a></p>";
 print "\n</BODY></HTML>";
 
 
