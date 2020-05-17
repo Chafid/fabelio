@@ -15,7 +15,6 @@ my %formdata;
 
 &parsing;
 
-#my $url = "https://fabelio.com/ip/meja-makan-cessi-new.html";
 my $url = $formdata{'producturl'}; 
 
 addtoDB();
@@ -38,13 +37,12 @@ sub readConfig {
 }
 
 sub getDataFromURL {
-    #print "URL: $url\n";
     my $content;
     my $ua = LWP::UserAgent->new();
     $ua->agent('Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0');
     my $response = $ua->get($url);    
     $content = $response->content;
-    #print "$content\n";
+
     return $content;
 }
 
@@ -116,7 +114,7 @@ sub addtoDB  {
     print "<tr><td><img src=$image></td></tr>";
     print "</table>";
     print "<p><a href=http://localhost/fabelio-test/add.html>Add more product</a></p>";
-    print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_product.pl>Product list</a></p>";
+    print "<p><a href=http://localhost/cgi-bin/fabelio-bin/list_product>Product list</a></p>";
     print "\n</BODY></HTML>";
 
     $name = '"' . $name . '"';
